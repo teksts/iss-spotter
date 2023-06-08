@@ -15,18 +15,15 @@ const issApi = "https://iss-flyover.herokuapp.com/json/?";
 const nextISSTimesForMyLocation = function(callback) {
   fetchMyIP((error, ip) => {
     if (error) {
-      callback(error, null);
-      return;
+      return callback(error, null);
     }
     fetchGeoCoordByIp(ip, (error, geolocation) => {
       if (error) {
-        callback(error, null);
-        return;
+        return callback(error, null);
       }
       fetchISSFlyOverTimes(geolocation, (error, flyovers) => {
         if (error) {
-          callback(error, null);
-          return;
+          return callback(error, null);
         }
         callback(null, flyovers);
       });
